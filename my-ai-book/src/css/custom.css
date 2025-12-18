@@ -1,0 +1,173 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #8A2BE2; /* Blue Violet */
+  --ifm-color-primary-dark: #4B0082; /* Indigo */
+  --ifm-color-primary-darker: #3B0066; /* Darker Indigo */
+  --ifm-color-primary-darkest: #2E004F; /* Darkest Indigo */
+  --ifm-color-primary-light: #BA55D3; /* Medium Orchid */
+  --ifm-color-primary-lighter: #DA70D6; /* Orchid */
+  --ifm-color-primary-lightest: #DDA0DD; /* Plum */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(138, 43, 226, 0.08);
+
+  --ai-bg-gradient: radial-gradient(circle at top left, #DDA0DD 0%, #BA55D3 40%, #00008B 100%);
+  --ai-card-bg: rgba(0, 0, 139, 0.9);
+  --ai-border-subtle: rgba(221, 160, 221, 0.2);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #BA55D3; /* Medium Orchid */
+  --ifm-color-primary-dark: #8A2BE2; /* Blue Violet */
+  --ifm-color-primary-darker: #7B1FA2; /* Darker Purple */
+  --ifm-color-primary-darkest: #4B0082; /* Indigo */
+  --ifm-color-primary-light: #DA70D6; /* Orchid */
+  --ifm-color-primary-lighter: #E6A3D6; /* Lighter Orchid */
+  --ifm-color-primary-lightest: #F0C8F0; /* Very Light Purple */
+  --docusaurus-highlighted-code-line-bg: rgba(186, 85, 211, 0.18);
+}
+
+/* AI textbook background for the whole site */
+.hero.hero--primary {
+  background: var(--ai-bg-gradient);
+  color: #f5f5ff;
+}
+
+.hero {
+  color: #f5f5ff;
+}
+
+.hero__title {
+  color: #4B0082 !important; /* Dark indigo for title */
+}
+
+.hero__subtitle {
+  color: #8A2BE2 !important; /* Blue violet for subtitle */
+}
+
+.button--secondary {
+  color: #FFFFFF !important; /* White text for visibility */
+  background-color: #00008B !important; /* Dark blue background */
+  border-color: #00008B !important;
+}
+
+.button--secondary:hover {
+  background-color: #0000CD !important; /* Slightly lighter blue on hover */
+  border-color: #0000CD !important;
+}
+
+.hero__subtitle {
+  opacity: 0.9;
+}
+
+.navbar {
+  backdrop-filter: blur(18px);
+  background: rgba(0, 0, 139, 0.92);
+  border-bottom: 1px solid var(--ai-border-subtle);
+}
+
+/* Navbar text color to light purple */
+.navbar__link {
+  color: #DDA0DD !important;
+}
+
+.navbar__link:hover {
+  color: #DDA0DD !important;
+}
+
+.navbar__link--active {
+  color: #DDA0DD !important;
+}
+
+.navbar__brand {
+  color: #DDA0DD !important;
+}
+
+/* Remove navbar hover effects */
+.navbar__link:hover {
+  background-color: transparent !important;
+  color: #DDA0DD !important;
+}
+
+.navbar__item:hover {
+  background-color: transparent !important;
+}
+
+.navbar__link--active:hover {
+  background-color: transparent !important;
+}
+
+.footer {
+  background: #000000;
+  border-top: 1px solid var(--ai-border-subtle);
+  color: #DDA0DD;
+}
+
+.footer a {
+  color: #DDA0DD;
+}
+
+.footer a:hover {
+  color: #BA55D3; /* Slightly darker purple for hover */
+}
+
+/* Docs layout: remove white background, use deep blue */
+.main-wrapper {
+  background: radial-gradient(circle at top left, #000000 0%, #00008B 45%, #DDA0DD 100%);
+}
+
+.theme-doc-sidebar-container,
+.theme-doc-sidebar-menu,
+.theme-doc-toc-desktop {
+  background: transparent;
+  border-color: var(--ai-border-subtle);
+}
+
+.theme-doc-markdown {
+  background: rgba(0, 0, 139, 0.9);
+  border-radius: 18px;
+  padding: 1.75rem 2rem;
+  border: 1px solid var(--ai-border-subtle);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+.theme-doc-markdown p,
+.theme-doc-markdown li,
+.theme-doc-markdown h1,
+.theme-doc-markdown h2,
+.theme-doc-markdown h3,
+.theme-doc-markdown h4 {
+  color: #f3f4ff;
+}
+
+.theme-doc-markdown code {
+  background: rgba(0, 0, 139, 0.9);
+}
+
+/* Blog page background to light purple */
+.theme-blog-page {
+  background: #DDA0DD !important;
+}
+
+.theme-blog-page .theme-doc-markdown,
+.theme-blog-page h1,
+.theme-blog-page h2,
+.theme-blog-page h3,
+.theme-blog-page h4,
+.theme-blog-page p,
+.theme-blog-page li {
+  color: #000000 !important;
+}
+
+.theme-blog-page .theme-doc-markdown code {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
+}
+
+

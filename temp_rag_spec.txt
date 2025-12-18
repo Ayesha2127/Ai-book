@@ -1,0 +1,113 @@
+Specification: Integrated RAG Chatbot
+
+1. Ov
+
+This specification details the development of a Retrieval-Augmented Generation (RAG) chatbot. The primary goal is to embed this chatbot within the Docusaurus book frontend, enabling it to answer user questions accurately and context-aware, based only on the book's content.
+
+2. Scope (Inclusions/Exclusions)
+
+Feature
+
+Included?
+
+Notes
+
+Core RAG (FastAPI)
+
+✅ Yes
+
+Answering questions based on indexed markdown files of the book.
+
+User Selected Text Query
+
+✅ Yes
+
+Prioritizing the user's highlighted text as the main context for the RAG query.
+
+Urdu Language Support
+
+✅ Yes
+
+The agent must understand Urdu questions and respond accurately in Urdu (Roman or standard script).
+
+Chat History
+
+✅ Yes
+
+Maintaining conversation context within a session using Neon Postgres.
+
+Frontend UI
+
+❌ No
+
+The frontend (React/Docusaurus) is pre-existing. Only API communication is part of the backend scope.
+
+3. Technology & Architecture Constraints (Mandatory Requirements)
+
+Backend: Python FastAPI
+
+Vector Store: Qdrant Cloud Free Tier
+
+Metadata/History DB: Neon Serverless Postgres
+
+LLM/Embedding: OpenAI API / ChatKit SDKs
+
+Security: CORS configuration is mandatory.
+
+4. Requirements & Acceptance Criteria (SMART)
+
+ID
+
+Requirement
+
+Acceptance Criteria (Testable Conditions)
+
+RAG-01
+
+Core RAG and Citation
+
+Every answer must include at least one relevant, cited source (section title and file name) from the book content.
+
+RAG-02
+
+No Source Handling
+
+If the model cannot find an answer within the book's content, it must return a polite denial message (e.g., "I can only answer questions related to this book's content.").
+
+RAG-03
+
+Selected Text Priority
+
+When a query is sent with highlighted text, the RAG query must assign the highest priority to the highlighted text for context generation.
+
+RAG-04
+
+Urdu Proficiency
+
+The chatbot must provide accurate and measured responses to Urdu questions (e.g., "Digital Twin kiya hota hai?") in Urdu or Roman Urdu.
+
+RAG-05
+
+Performance
+
+90% of queries must be answered within 15 seconds.
+
+5. Folder Structure (Backend Separation)
+
+The FastAPI backend will reside in a dedicated backend/ folder to ensure clean separation from the Docusaurus frontend.
+
+/hackathon
+├── /backend/                        # Root folder for FastAPI application
+│   ├── main.py                      # Main FastAPI application and endpoints
+│   ├── requirements.txt             # Python dependencies
+│   ├── /services/                   # Database clients, RAG logic, and helper functions
+│   │   ├── qdrant_service.py        # Qdrant client initialization and vector operations
+│   │   ├── neon_service.py        # Neon Postgres client and history management
+│   │   ├── rag_agent.py             # Core RAG pipeline logic and LLM interaction
+│   ├── /data/                       # Placeholder for book markdown files (ingestion source)
+│   └── .env                         # Environment variables (API Keys, URLs)
+├── /docs/                           # Docusaurus Frontend (Existing project)
+│   ├── ...
+└── /specs/
+    └── /rag-chatbot/
+        └── spec.md                  # This file
